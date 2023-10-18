@@ -5,6 +5,8 @@ import {
 import Layout from "../MainLayout/Layout";
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
+import AddProduct from "../pages/AddProduct/AddProduct";
+import About from "../pages/About/About";
 
   const router = createBrowserRouter([
     {
@@ -15,6 +17,14 @@ import NotFound from "../pages/NotFound/NotFound";
             path: '/',
             element: <Home></Home>
         },
+        {
+            path: '/about',
+            element: <About></About>
+        },
+        {
+            path: '/addproduct',
+            element: <AddProduct></AddProduct>
+        }
         
       ]
     },
