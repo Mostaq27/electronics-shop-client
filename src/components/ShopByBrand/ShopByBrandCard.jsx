@@ -12,9 +12,9 @@ const ShopByBrandCard = ({card}) => {
         <div className="card-body">
           <h2 className="card-title">{brand}</h2>
            
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary"></button>
-          </div>
+          {/* <div className="card-actions justify-start">
+            <button className="btn btn-primary">Shop now</button>
+          </div> */}
         </div>
       </div>
     );
