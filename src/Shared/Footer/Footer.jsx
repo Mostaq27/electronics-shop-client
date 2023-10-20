@@ -9,7 +9,7 @@ const Footer = () => {
                 <aside>
                 <img src={logo} alt="" className="h-[50px] inline-block fill-current rounded-xl" />
                     <p className="font-bold">
-                        Tech point. <br />Providing reliable tech since 2023
+                        Tech <span className=" text-orange-500">Point.</span> <br />Providing reliable tech since 2023
                     </p>
                 </aside>
                    
