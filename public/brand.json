@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "photo": "https://images.unsplash.com/photo-1540726811314-7648cc1b4426?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "brand": "Apple"
+  },
+  {
+    "id": 2,
+    "photo": "https://i.pinimg.com/736x/8c/2d/ce/8c2dceb40c4a1b180645f99d07d6712b.jpg",
+    "brand": "Sony"
+  },
+  {
+    "id": 3,
+    "photo": "https://www.dailypioneer.com/uploads/2022/story/images/big/samsung-expands-r-d-innovation-programme-to-70-indian-engineering-colleges-2022-08-29.jpg",
+    "brand": " Samsung"
+  },
+  {
+    "id": 4,
+    "photo": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/d2abd662597191.5a9589b09ddf5.jpg",
+    "brand": "Google"
+  },
+  {
+    "id": 5,
+    "photo": "https://www.logodee.com/wp-content/uploads/2021/12/7.jpg",
+    "brand": "Walton"
+  },
+  {
+    "id": 6,
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/2048px-Xiaomi_logo.svg.png",
+    "brand": "Xiaomi"
+  }
+]

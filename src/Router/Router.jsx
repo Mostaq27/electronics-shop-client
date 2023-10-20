@@ -11,11 +11,12 @@ import About from "../pages/About/About";
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout></Layout>,
+      element:  <Layout></Layout>,
       children:[
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('/brand.json')
         },
         {
             path: '/about',
