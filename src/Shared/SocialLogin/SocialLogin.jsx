@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
+ 
 
 const SocialLogin = () => {
   const navigate = useNavigate();

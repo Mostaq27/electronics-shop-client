@@ -1,4 +1,4 @@
-
+import { Helmet } from "react-helmet";
 
 const AddProduct = () => {
     const handleAddProduct = event => {
@@ -33,6 +33,10 @@ const AddProduct = () => {
         
     }
     return (
+        <>
+         <Helmet>
+                <title>AddProduct | Tech Point</title>
+            </Helmet>
         <div className="bg-[#5a5a1b] p-24">
             <h2 className="text-3xl font-extrabold text-center">Add a Product</h2>
             <form onSubmit={handleAddProduct}>
@@ -124,6 +128,7 @@ const AddProduct = () => {
                 <input type="submit" value="Add Product" className="btn btn-block capitalize font-semibold text-xl mx-4" />
             </form>
         </div>
+        </>
     );
 };
 export default AddProduct;

@@ -1,10 +1,13 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
+ 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/login.svg";
-import { AuthContext } from "../../providers/AuthProvider";
+// import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
- 
+import { AuthContext } from "../../provider/AuthProvider";
+// import { useState } from "react";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -71,7 +74,7 @@ const Login = () => {
                     placeholder="password"
                     className="input input-bordered"
                   />
-                  <p className="text-red-600"> {error} </p>
+                  <p className="text-red-600">  </p>
                 </div>
                 <div className="form-control mt-6">
                   <input
@@ -86,8 +89,8 @@ const Login = () => {
                 <Link className="text-orange-600 font-bold ms-1" to="/signup">
                   Sign Up
                 </Link>
-                <SocialLogin></SocialLogin>
               </p>
+               <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>

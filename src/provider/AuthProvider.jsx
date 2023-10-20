@@ -10,7 +10,9 @@ import {
     signOut,
   } from "firebase/auth";
   import { createContext, useEffect, useState } from "react";
-  import app from "../firebase/firebase.config";
+import app from "../firebase/firebase.config";
+
+ 
   
   export const AuthContext = createContext();
   const auth = getAuth(app);
@@ -66,11 +68,4 @@ import {
   };
   
   export default AuthProvider;
-// const AuthProvider = () => {
-//     return(
-//         <div>
-
-//         </div>
-//     );
-// };
-// export default AuthProvider;
+ 

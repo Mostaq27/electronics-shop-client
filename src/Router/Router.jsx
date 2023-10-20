@@ -8,6 +8,8 @@ import NotFound from "../pages/NotFound/NotFound";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import About from "../pages/About/About";
 import Login from "../pages/Login/Login";
+import SignUp from "../pages/Login/SignUp";
+import MyCart from "../pages/MyCart/MyCart";
 
   const router = createBrowserRouter([
     {
@@ -33,7 +35,11 @@ import Login from "../pages/Login/Login";
         },
         {
           path: '/signup',
-          element:<></>
+          element:<SignUp></SignUp>
+        },
+        {
+          path: '/mycart',
+          element: <MyCart></MyCart>
         }
         
       ]
