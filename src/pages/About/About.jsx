@@ -1,5 +1,5 @@
 
-
+// import { Helmet } from "react-helmet";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { default as parts, default as person } from "../../assets/about-img.webp";
@@ -7,6 +7,9 @@ import { default as parts, default as person } from "../../assets/about-img.webp
 const About = () => {
   return (
     <>
+            {/* <Helmet>
+                <title>About | Tech Point</title>
+            </Helmet> */}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="lg:w-1/2 relative">

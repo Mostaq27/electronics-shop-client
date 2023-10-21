@@ -7,6 +7,7 @@ import img from "../../assets/login.svg";
 
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
  
 
 const SignUp = () => {
@@ -32,8 +33,17 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate(from, { replace: true });
+                Swal.fire({
+                    title: 'Success!',
+                    text: "Your account created successfully",
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
             })
+                navigate(from, { replace: true });
+
+        })
+        
             .catch((error) => {
                 console.log(error.message);
                 setError(error.message);

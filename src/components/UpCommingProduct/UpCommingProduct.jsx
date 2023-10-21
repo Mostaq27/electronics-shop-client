@@ -20,7 +20,7 @@ const UpCommingProduct = () => {
     return (
         <div style={{ backgroundColor: "rgb(92, 92, 92)" }}>
             <h1 className="text-3xl font-bold text-center p-10">Our Upcomming Products</h1>
-            <div className="grid  lg:grid-cols-3 gap-6 px-20 py-10">
+            <div className="grid  lg:grid-cols-3 gap-6  p-10">
                  {
                     cards.map(card => <div className="relative flex w-full max-w-[48rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div className="relative  m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
@@ -33,7 +33,7 @@ const UpCommingProduct = () => {
                     <div className="p-6">
                        
                       <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                      {card.brand}k
+                      {card.brand}
                       </h4>
                       <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
                       {card.details}

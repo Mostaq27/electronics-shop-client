@@ -80,9 +80,9 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center btn btn-ghost">
                     <img src={img} alt="logo" className=" rounded-xl h-[30px]" />
-                    <a className="btn btn-ghost capitalize visible md:visible text-3xl font-bold">Tech<span className=" text-orange-500">Point</span></a>
+                    <a className=" capitalize visible md:visible text-3xl font-bold">Tech<span className=" text-orange-500">Point</span></a>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

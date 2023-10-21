@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
- 
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/login.svg";
 // import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
@@ -90,7 +90,7 @@ const Login = () => {
                   Sign Up
                 </Link>
               </p>
-               <SocialLogin></SocialLogin>
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>
