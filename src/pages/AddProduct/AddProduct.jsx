@@ -37,7 +37,7 @@ const AddProduct = () => {
          <Helmet>
                 <title>AddProduct | Tech Point</title>
             </Helmet>
-        <div className="bg-[#5a5a1b] p-24">
+        <div className="bg-base-200 p-24">
             <h2 className="text-3xl font-extrabold text-center">Add a Product</h2>
             <form onSubmit={handleAddProduct}>
                 {/* form name and quantity row */}
