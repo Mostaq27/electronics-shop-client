@@ -1,8 +1,26 @@
-# React + Vite
+# Breadcrumbsb8a10-brandshop-client-side-Mostaq27
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Live Link
+https://electronics-shop-b9c14.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Summary
+
+* the website is tech point. it's brand shop website
+* this website devloped with react js , express js , firebase and database as a mongodb
+* the website has navbar with conditional tab
+    * Home
+    * Login
+    * About
+* conditional tab is 
+    * Add product
+    * My Cart
+* mongoDB CRUD operater
+* mongoDB search, limit and sort with ascending and descending 
+* used private route
+* 404 page
+* implement 2 type of authentication system , like password, google
+* Product Deatils button 
+* Product Update button 
+* Product Add to Cart button 
+* Input field validation
