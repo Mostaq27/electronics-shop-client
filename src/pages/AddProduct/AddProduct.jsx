@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
     const handleAddProduct = event => {
@@ -16,7 +17,7 @@ const AddProduct = () => {
         const newProduct = { name, brand, price, rating, type, description, photo }
         console.log(newProduct)
 
-        fetch("http://localhost:5000/product",{
+        fetch("https://electronics-shop-server.vercel.app/product",{
             method: "POST",
             headers:{
                 "Content-Type": "application/json"
@@ -26,9 +27,16 @@ const AddProduct = () => {
         .then(result=>result.json())
         .then(data=> {
             if(data.insertedId){
-                alert("product added successfully.")
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'product added successfully.!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  form.reset();
             }
-            console.log(data)
+            // console.log(data)
         })
         
     }

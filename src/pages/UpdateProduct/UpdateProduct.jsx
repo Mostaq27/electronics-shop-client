@@ -24,7 +24,7 @@ const UpdateProduct = () => {
         const photo = form.photo.value;
         const updateProduct = { name, brand, price, rating, type, description, photo }
         // console.log(newProduct)
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://electronics-shop-server.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const UpdateProduct = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-                    //   form.reset();
+                      
                 }
             })
 

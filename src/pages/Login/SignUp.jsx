@@ -1,14 +1,10 @@
-import { useContext, useState } from "react";
-import { Helmet } from "react-helmet";
-import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import img from "../../assets/login.svg";
-
-
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import img from "../../assets/login.svg";
 import Swal from "sweetalert2";
- 
+import { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
     const [error, setError] = useState("");
@@ -18,6 +14,23 @@ const SignUp = () => {
 
     const from = location.state?.from?.pathname || "/";
 
+    const isStrongPassword = (password) => {
+         
+        const uppercase = /[A-Z]/.test(password);
+        const lowercase = /[a-z]/.test(password);
+        const digit = /\d/.test(password);
+        const specialChar = /[!@#$%^&*]/.test(password);
+        const lengthValid = password.length >= 6;
+
+        return (
+            uppercase &&
+            lowercase &&
+            digit &&
+            specialChar &&
+            lengthValid
+        );
+    };
+
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -25,30 +38,35 @@ const SignUp = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
-    
+
+        if (!isStrongPassword(password)) {
+            setError("Password must be six charecter,one uppercase and one special charecter .");
+            return;
+        }
 
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
                 form.reset();
-                Swal.fire({
-                    title: 'Success!',
-                    text: "Your account created successfully",
-                    icon: 'success',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'OK'
-            })
                 navigate(from, { replace: true });
+                updateUser(result.user, name, photo);
 
-        })
-        
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your account created successfully",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "OK",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    }
+                });
+            })
             .catch((error) => {
-                console.log(error.message);
                 setError(error.message);
             });
-    };
+    };;
 
     return (
         <>
@@ -111,11 +129,13 @@ const SignUp = () => {
                                     />
                                     <p className="text-red-600"> </p>
                                 </div>
+                                 
                                 <div className="form-control mt-6">
                                     <input
                                         className="btn btn-outline"
                                         type="submit"
                                         value="Sign Up"
+                                        
                                     />
                                 </div>
                             </form>
@@ -124,9 +144,9 @@ const SignUp = () => {
                                 <Link className="text-orange-600 font-bold" to="/login">
                                     Login
                                 </Link>
-                                <p>{error}</p>
+                                <p className="my-4 text-center text-red-600">{error}</p>
                             </p>
-                             <SocialLogin></SocialLogin>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

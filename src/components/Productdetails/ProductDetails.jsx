@@ -1,14 +1,15 @@
- 
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const ProductDetails = () => {
     const [findData, setFindData] = useState({})
-    const { photo, brand, name, price,description } = findData;
+    const { photo, brand, name, price, description } = findData;
     const { id } = useParams()
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://electronics-shop-server.vercel.app/product')
             .then(res => res.json())
             .then(data => {
 
@@ -17,66 +18,97 @@ const ProductDetails = () => {
 
             })
     }, [id])
-   
+
 
     const handleAddCard = () => {
-    
 
-       
-        const cartProduct = {photo,brand,name,price}
-     
-        fetch('http://localhost:5000/cart',{
-        method: "POST",
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(cartProduct)
-        })
-        .then(res=>res.json())
-        .then(data=> {
-            if(data.insertedId){
-                alert("product add to cart very successfully")
-            }
-            console.log(data)
-        })
-     
 
-     console.log(cartProduct)
+
+        const cartProduct = { photo, brand, name, price }
+
+        fetch('https://electronics-shop-server.vercel.app/cart', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(cartProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'product add to cart successfully.!',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                    // alert("product add to cart very successfully")
+                }
+                console.log(data)
+            })
+
+
+        console.log(cartProduct)
 
     }
 
     return (
-        <div className="flex h-screen items-center justify-center p-10 bg-base-200">
-            <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 h-auto rounded-xl bg-clip-border">
-                <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-72 rounded-xl bg-clip-border">
-                    <img
-                        src={photo}
-                        class="object-cover w-full h-60"
-                    />
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-2">
-                        <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900">
-                            {name}
-                        </p>
-                        <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900">
-                            ${price}
-                        </p>
+        <>
+            <div className=" space-y-20 py-12 bg-base-200">
+                <h3 className="text-center text-2xl font-bold">
+                    Details For : <span className="text-orange-400">{name}</span>
+                </h3>
+                <div className=" items-center justify-center flex">
+
+                    <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                        <div class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
+                            <img
+                                src={photo}
+                                alt="image"
+                                class="object-cover w-full h-full"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h6 class="block mb-4 font-sans text-xl antialiased font-bold leading-relaxed tracking-normal text-pink-500 uppercase">
+                                {brand}
+                            </h6>
+                            <h4 class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                {name}
+                            </h4>
+                            <p class="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+                                {description}
+                            </p>
+                            <a class="inline-block" >
+                                <button onClick={handleAddCard}
+                                    class="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                    type="button"
+                                >
+                                    Add to Cart
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="2"
+                                        stroke="currentColor"
+                                        aria-hidden="true"
+                                        class="w-4 h-4"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                    <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-                        {description}
-                    </p>
                 </div>
-                <div class="p-6 pt-0">
-                    <button onClick={handleAddCard}
-                        class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        type="button"
-                    >
-                        Add to Cart
-                    </button>
-                </div>
+
+        
             </div>
-        </div>
+        </>
     );
 };
 export default ProductDetails;

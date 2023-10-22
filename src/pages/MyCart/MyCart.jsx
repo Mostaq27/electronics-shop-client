@@ -11,7 +11,7 @@ const MyCart = () => {
     const handleDelete = id => {
         // make sure cart is confirmed to delete 
         
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://electronics-shop-server.vercel.app/cart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -31,7 +31,7 @@ const MyCart = () => {
                 <title>Mycart | Tech Point</title>
             </Helmet>
             <div className="p-10">
-                <div>my cart :{carts.length}</div>
+                <h3 className="text-center text-3xl font-bold">My Carts : {carts.length} Pcs</h3>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
@@ -51,7 +51,7 @@ const MyCart = () => {
                             {
                                 carts.map((cart,index) =>   <tr key={cart._id}>
                                     <th>{index+1}</th>
-                                    <td><figure><img src={cart.photo} alt="photo" className="h-20 w-20" /></figure> </td>
+                                    <td><figure className=" rounded-lg"><img src={cart.photo} alt="photo" className="h-20 w-20 rounded-xl" /></figure> </td>
                                     <td className=" font-semibold">{cart.name}</td>
                                     <td className=" font-bold">{cart.brand}</td>
                                     <td className=" font-semibold">{cart.price}$</td>

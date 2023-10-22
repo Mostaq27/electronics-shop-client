@@ -36,7 +36,7 @@ import PrivateRoutes from "./PrivateRoutes";
         {
           path: '/updateproduct/:id',
           element: <PrivateRoutes><UpdateProduct></UpdateProduct></PrivateRoutes> ,
-          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+          loader: ({params}) => fetch(`https://electronics-shop-server.vercel.app/product/${params.id}`)
         },
         {
           path: '/brandproduct/:brand',
@@ -57,7 +57,7 @@ import PrivateRoutes from "./PrivateRoutes";
         {
           path: '/mycart',
           element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
-          loader: ()=> fetch('http://localhost:5000/cart')
+          loader: ()=> fetch('https://electronics-shop-server.vercel.app/cart')
         }
         
       ]

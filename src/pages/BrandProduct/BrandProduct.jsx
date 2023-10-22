@@ -13,7 +13,7 @@ const BrandProduct = () => {
 
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://electronics-shop-server.vercel.app/product')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(product => product.brand.toLowerCase() === brand.toLowerCase())
@@ -23,7 +23,7 @@ const BrandProduct = () => {
     }, [])
 
     return (
-        <div className=" bg-slate-200">
+        <div className=" bg-base-200">
             <div className="carousel w-full h-[70vh]">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src={img1} className="w-full" />
@@ -55,12 +55,19 @@ const BrandProduct = () => {
                 </div>
             </div>
 
+            <div className=" space-y-20 py-12 bg-base-200">
+                <h3 className="text-center text-2xl font-bold">
+                    Shop Brand : <span className="text-orange-400">{brand}</span>
+                </h3>
+            </div>
+
 
             {
                 products.length == 0 ? <div className="flex justify-center items-center h-[50vh]"> <h1 className="text-3xl font-bold text-center text-red-800">Found no data</h1></div> :
 
 
                     <div className="grid  lg:grid-cols-2 gap-5 p-10">
+
                         {
 
                             products?.map(product => <BrandProductCart key={product._id} product={product}></BrandProductCart>)

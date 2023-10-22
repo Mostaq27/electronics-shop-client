@@ -90,6 +90,7 @@ const Login = () => {
                   Sign Up
                 </Link>
               </p>
+              <p className="my-4 text-center text-red-700">{error}</p>
               <SocialLogin></SocialLogin>
             </div>
           </div>
