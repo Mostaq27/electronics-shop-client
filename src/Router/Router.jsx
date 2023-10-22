@@ -13,6 +13,7 @@ import MyCart from "../pages/MyCart/MyCart";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import BrandProduct from "../pages/BrandProduct/BrandProduct";
 import ProductDetails from "../components/Productdetails/ProductDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
   const router = createBrowserRouter([
     {
@@ -30,20 +31,20 @@ import ProductDetails from "../components/Productdetails/ProductDetails";
         },
         {
             path: '/addproduct',
-            element: <AddProduct></AddProduct>
+            element: <PrivateRoutes><AddProduct></AddProduct></PrivateRoutes>
         },
         {
           path: '/updateproduct/:id',
-          element: <UpdateProduct></UpdateProduct>,
-          loader: ({params}) => fetch(`http://localhost:5000/product/${params._id}`)
+          element: <PrivateRoutes><UpdateProduct></UpdateProduct></PrivateRoutes> ,
+          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
         },
         {
           path: '/brandproduct/:brand',
-          element: <BrandProduct></BrandProduct>
+          element:<BrandProduct></BrandProduct>
         },
         {
-          path: '/productdetails',
-          element: <ProductDetails></ProductDetails>
+          path: '/productdetails/:id',
+          element:<PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>
         },
         {
           path: '/login',
@@ -55,7 +56,8 @@ import ProductDetails from "../components/Productdetails/ProductDetails";
         },
         {
           path: '/mycart',
-          element: <MyCart></MyCart>
+          element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
+          loader: ()=> fetch('http://localhost:5000/cart')
         }
         
       ]
@@ -66,11 +68,5 @@ import ProductDetails from "../components/Productdetails/ProductDetails";
     }
   ]);
 
-// const Router = () => {
-//     return(
-//         <div>
-
-//         </div>
-//     );
-// };
+ 
 export default router;

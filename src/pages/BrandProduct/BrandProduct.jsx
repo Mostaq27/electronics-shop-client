@@ -56,12 +56,18 @@ const BrandProduct = () => {
             </div>
 
 
-            <div className="grid  lg:grid-cols-2 gap-5 p-10">
-                {
+            {
+                products.length == 0 ? <div className="flex justify-center items-center h-[50vh]"> <h1 className="text-3xl font-bold text-center text-red-800">Found no data</h1></div> :
 
-                    products?.map(product => <BrandProductCart key={product._id} product={product}></BrandProductCart>)
-                }
-            </div>
+
+                    <div className="grid  lg:grid-cols-2 gap-5 p-10">
+                        {
+
+                            products?.map(product => <BrandProductCart key={product._id} product={product}></BrandProductCart>)
+                        }
+                    </div>
+
+            }
         </div>
     );
 };

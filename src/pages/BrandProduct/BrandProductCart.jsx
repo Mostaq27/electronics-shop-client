@@ -28,7 +28,8 @@ const BrandProductCart = ({ product }) => {
                     {price}$
                 </p>
                 <div className="flex flex-col">
-                    <a className="inline-block" href="#">
+                    <a className="inline-block">
+                        <Link to={`/productdetails/${product._id}`}>
                         <button
                             className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
@@ -50,6 +51,8 @@ const BrandProductCart = ({ product }) => {
                                 ></path>
                             </svg>
                         </button>
+                        </Link>
+                        
                     </a>
                     <a className="inline-block" >
                         <Link to={`/updateproduct/${product._id}`}>
