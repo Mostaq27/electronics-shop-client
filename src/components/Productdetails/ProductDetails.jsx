@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -42,7 +43,7 @@ const ProductDetails = () => {
                         title: 'product add to cart successfully.!',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                    })
                     // alert("product add to cart very successfully")
                 }
                 console.log(data)
@@ -55,6 +56,9 @@ const ProductDetails = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Product Details | Tech Point</title>
+            </Helmet>
             <div className=" space-y-20 py-12 bg-base-200">
                 <h3 className="text-center text-2xl font-bold">
                     Details For : <span className="text-orange-400">{name}</span>
@@ -106,7 +110,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
 
-        
+
             </div>
         </>
     );

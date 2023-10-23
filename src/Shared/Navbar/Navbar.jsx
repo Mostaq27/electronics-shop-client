@@ -80,10 +80,13 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div className="flex items-center btn btn-ghost">
-                    <img src={img} alt="logo" className=" rounded-xl h-[30px]" />
-                    <a className=" capitalize invisible md:visible text-3xl font-bold">Tech<span className=" text-orange-500">Point</span></a>
-                </div>
+                <Link to="/">
+                    <div className="flex items-center btn btn-ghost">
+                        <img src={img} alt="logo" className=" rounded-xl h-[30px]" />
+                        <a className=" capitalize invisible md:visible text-3xl font-bold">Tech<span className=" text-orange-500">Point</span></a>
+                    </div>
+                </Link>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-semibold">
