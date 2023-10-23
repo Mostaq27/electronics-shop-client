@@ -41,6 +41,15 @@ import app from "../firebase/firebase.config";
       setLoading(true);
       return signOut(auth);
     };
+
+
+    const updateUser = (user, name, photo) => {
+      updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+      })
+          
+  }
   
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -60,6 +69,7 @@ import app from "../firebase/firebase.config";
       signIn,
       googleSignIn,
       logOut,
+      updateUser
     };
   
     return (

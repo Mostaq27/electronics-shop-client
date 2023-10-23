@@ -6,12 +6,20 @@ import img3 from "../../assets/cover-3.jpg"
 import img4 from "../../assets/cover-4.webp"
 import BrandProductCart from "./BrandProductCart";
 import { Helmet } from "react-helmet";
+import { RingLoader } from "react-spinners";
+
 
 
 const BrandProduct = () => {
 
     const { brand } = useParams()
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
 
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 3000);
+    }, []);
     const [products, setProducts] = useState([])
     useEffect(() => {
         fetch('https://electronics-shop-server.vercel.app/product')
@@ -19,6 +27,7 @@ const BrandProduct = () => {
             .then(data => {
                 const filteredData = data.filter(product => product.brand.toLowerCase() === brand.toLowerCase())
                 setProducts(filteredData)
+                setIsLoading(false)
 
             })
     }, [])
@@ -69,18 +78,30 @@ const BrandProduct = () => {
 
 
                 {
-                    products.length == 0 ? <div className="flex justify-center items-center h-[50vh]"> <h1 className="text-3xl font-bold text-center text-red-800">Found no data</h1></div> :
+                    isLoading ? <div className="  justify-center items-center flex py-20">
+                        <RingLoader
+                            color="hsla(10, 91%, 27%, 1)"
+                            cssOverride={{}}
+                            loading
+                            size={74}
+                            speedMultiplier={1}
+                        />
+                    </div>
+                        :
 
-
-                        <div className="grid  lg:grid-cols-2 gap-5 p-10">
-
+                        <div>
                             {
-
-                                products?.map(product => <BrandProductCart key={product._id} product={product}></BrandProductCart>)
+                                products.length == 0 ? <div className="flex justify-center items-center h-[50vh]"> <h1 className="text-3xl font-bold text-center text-red-800">Now there is no product available this brand.</h1></div>
+                                    :
+                                    <div className="grid  lg:grid-cols-2 gap-5 p-10">
+                                        {
+                                            products?.map(product => <BrandProductCart key={product._id} product={product}></BrandProductCart>)
+                                        }
+                                    </div>
                             }
                         </div>
-
                 }
+
             </div>
         </>
     );

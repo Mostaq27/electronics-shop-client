@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
 
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const [accecpted, setACcecpted] = useState(false);
     const [error, setError] = useState("");
     const location = useLocation();
@@ -54,6 +54,7 @@ const SignUp = () => {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
+                updateUser(name,photo)
                 // console.log(user);
                 form.reset();
     
@@ -79,17 +80,7 @@ const SignUp = () => {
             });
     };
 
-    const updateUser = (user, name, photo) => {
-        updateProfile(user, {
-            displayName: name,
-            photoURL: photo,
-        })
-            .then(() => {
-            })
-            .catch((error) => {
-                setError(error.message);
-            })
-    }
+    
 
     const handleTerm = event => {
         const checked = event.target.checked;

@@ -31,7 +31,7 @@ const MyCart = () => {
                 <title>Mycart | Tech Point</title>
             </Helmet>
             <div className="p-10">
-                <h3 className="text-center text-3xl font-bold">My Carts : {carts.length} Pcs</h3>
+                <h3 className="text-center text-3xl font-bold">My Carts : <span className=" text-orange-500"> {carts.length} Pcs</span></h3>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
@@ -48,6 +48,7 @@ const MyCart = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
+                        
                             {
                                 carts.map((cart,index) =>   <tr key={cart._id}>
                                     <th>{index+1}</th>
