@@ -1,9 +1,21 @@
-import { FaRegStar, FaStar } from "react-icons/fa";
+import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 
 
 const BrandProductCart = ({ product }) => {
+
     const { photo, name, brand, type, price, rating } = product || {};
+
+    const isRating = {
+        size: 25,
+        count: 5,
+        edit: false,
+        isHalf: true,
+        value: (rating),
+        color: "blue",
+        activeColor: "red",
+       
+    };
     // console.log(product)
     return (
         <>
@@ -27,9 +39,9 @@ const BrandProductCart = ({ product }) => {
                         Category: {type}
                     </p>
                     <p className="block mb-2 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
-                       Price: {price}$
+                        Price: {price}$
                     </p>
-                    <div>Rating: {rating}
+                    <div className="flex items-center"><p>Rating:</p> <p><ReactStars {...isRating} /></p> 
 
                     </div>
                     <div className="flex flex-col">
