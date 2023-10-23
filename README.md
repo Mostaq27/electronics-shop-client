@@ -16,7 +16,6 @@ https://electronics-shop-b9c14.web.app/
     * Add product
     * My Cart
 * mongoDB CRUD operater
-* mongoDB search, limit and sort with ascending and descending 
 * used private route
 * 404 page
 * implement 2 type of authentication system , like password, google
