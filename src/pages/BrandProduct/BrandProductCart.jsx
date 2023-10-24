@@ -44,7 +44,7 @@ const BrandProductCart = ({ product }) => {
                     <div className="flex items-center"><p>Rating:</p> <p><ReactStars {...isRating} /></p> 
 
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-row gap-10">
                         <a className="inline-block">
                             <Link to={`/productdetails/${product._id}`}>
                                 <button
