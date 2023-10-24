@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const MyCart = () => {
@@ -10,20 +11,38 @@ const MyCart = () => {
 
     const handleDelete = id => {
         // make sure cart is confirmed to delete 
-        
-        fetch(`https://electronics-shop-server.vercel.app/cart/${id}`, {
-            method: 'DELETE'
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    console.log('deleted successfully');
-                    // remove the cart from the ui
-                    const remainingCarts = carts.filter(cart => cart._id !== id);
-                    setCarts(remainingCarts);
+            .then((result) => {
+                if (result.isConfirmed) {
+
+                    fetch(`https://electronics-shop-server.vercel.app/cart/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount > 0) {
+                                // console.log('deleted successfully');
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your Product has been deleted.',
+                                    'success'
+                                  )
+                                // remove the cart from the ui
+                                const remainingCarts = carts.filter(cart => cart._id !== id);
+                                setCarts(remainingCarts);
+                            }
+                        })
                 }
             })
-        }
+    }
 
     return (
         <>
@@ -48,18 +67,18 @@ const MyCart = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                        
+
                             {
-                                carts.map((cart,index) =>   <tr key={cart._id}>
-                                    <th>{index+1}</th>
+                                carts.map((cart, index) => <tr key={cart._id}>
+                                    <th>{index + 1}</th>
                                     <td><figure className=" rounded-lg"><img src={cart.photo} alt="photo" className="h-20 w-20 rounded-xl" /></figure> </td>
                                     <td className=" font-semibold">{cart.name}</td>
                                     <td className=" font-bold">{cart.brand}</td>
                                     <td className=" font-semibold">{cart.price}$</td>
-                                    <th><button onClick={()=>handleDelete(cart._id)} className="btn btn-ghost"><MdDeleteForever className=" bg-red-700 h-8 w-8"></MdDeleteForever></button></th>
-                                </tr> )
+                                    <th><button onClick={() => handleDelete(cart._id)} className="btn btn-ghost"><MdDeleteForever className=" bg-red-700 h-8 w-8"></MdDeleteForever></button></th>
+                                </tr>)
                             }
-                          
+
                         </tbody>
                     </table>
                 </div>
