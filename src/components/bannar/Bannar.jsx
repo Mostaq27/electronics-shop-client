@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Bannar = () => {
@@ -8,7 +9,7 @@ const Bannar = () => {
           <div className="max-w-md">
             <h1 className="mb-5 text-4xl font-bold">Welcome to Tech-Point</h1>
             <p className="mb-5">We are dedicated to bringing you the latest and greatest in the <br />world of technology. Whether you're a tech enthusiast, a professional seeking top-of- the-line electronics , or someone looking for reliable everyday gadgets, you've come to the right place.</p>
-            <button className="btn btn-primary">Explore More </button>
+           <Link to='*'> <button className="btn btn-primary">Explore More </button></Link>
           </div>
         </div>
       </div>

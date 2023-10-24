@@ -14,6 +14,7 @@ import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import BrandProduct from "../pages/BrandProduct/BrandProduct";
 import ProductDetails from "../components/Productdetails/ProductDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import Contact from "../components/Contact/Contact";
 
   const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ import PrivateRoutes from "./PrivateRoutes";
         {
             path: '/about',
             element: <About></About>
+        },
+        {
+          path:'/contact',
+          element: <Contact></Contact>
         },
         {
             path: '/addproduct',
