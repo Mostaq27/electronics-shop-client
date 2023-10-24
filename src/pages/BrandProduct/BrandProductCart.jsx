@@ -20,12 +20,12 @@ const BrandProductCart = ({ product }) => {
     return (
         <>
 
-            <div className="relative flex  w-auto max-w-[48rem]  rounded-xl bg-white bg-clip-border text-gray-700 shadow-md flex-row">
-                <div className="relative w-2/4 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
+            <div className="relative flex  w-auto max-w-[48rem]  rounded-xl bg-white bg-clip-border text-gray-700 shadow-md flex-col md:flex-row">
+                <div className="relative  m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border lg:w-2/4">
                     <img
                         src={photo}
                         alt="image"
-                        className="object-cover w-80 h-full"
+                        className="object-cover w-full h-52 md:w-80 h-full"
                     />
                 </div>
                 <div className="p-6">

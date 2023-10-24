@@ -84,12 +84,12 @@ const ProductDetails = () => {
                      :
                      <div className=" items-center justify-center flex">
 
-                     <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                         <div class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
+                     <div class="relative flex w-full max-w-[48rem]  rounded-xl bg-white bg-clip-border text-gray-700 shadow-md flex-col md:flex-row">
+                         <div class="relative  m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border lg:w-2/5">
                              <img
                                  src={photo}
                                  alt="image"
-                                 class="object-cover w-full h-full"
+                                 class="object-cover w-full h-52 md:w-80 h-full"
                              />
                          </div>
                          <div class="p-6">
